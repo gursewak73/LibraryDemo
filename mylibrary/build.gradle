@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+
+ext {
+    user = 'gursewak73'
+    apikey = '418a6f9b794abfeb8ef9d25091381ecdbc09b6ed'
+    bintrayRepo = 'maven'
+    bintrayName = 'com.mylibrary'
+    publishedGroupId = 'com.mylibrary'
+    libraryName = 'mylibrary'
+    artifact = '.mylibrary'
+    libraryDescription = 'A powerful android charting libaray'
+    versionDescription = 'First library'
+    siteUrl = 'https://www.numetriclabz.com'
+    gitUrl = 'https://github.com/numetriclabz/numAndroidCharts.git'
+    libraryVersion = '1.0.0'
+    developerId = 'gursewak73'
+    pomPackaging = 'aar'
+    licenses = ['Apache-2.0']
+    developerName = 'gursewak singh'
+    developerEmail = 'gursewak73@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = 'Apache - 2.0'
+}
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    apply from: 'installv.gradle'
+    apply from: 'bintrayv.gradle'
+
+}
